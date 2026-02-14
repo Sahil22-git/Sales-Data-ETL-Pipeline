@@ -1,14 +1,23 @@
-END TO END SALES DATA ETL & ANALYTICS PIPELINE
-PROJECT OVERVIEW
+# End to End Sales Data ETL & Analytics Pipeline
 
-This project is an end to end automated ETL pipeline built using Python and MySQL.
-It ingests messy sales data from multiple CSV files cleans and transforms the data loads it into a relational database and automatically generates analytical reports.
+## Project Overview
 
-The pipeline simulates a real world business environment where data arrives in batches and requires validation, transformation and reporting.
+This project is a production-style automated ETL pipeline built using Python and MySQL.
 
+It simulates a real world business environment where messy sales data arrives in multiple batches and needs to be:
 
+- Ingested
+- Cleaned
+- Transformed
+- Loaded into a relational database
+- Analyzed using SQL
+- Reported automatically
 
-ARCHITECTURE
+The entire pipeline runs with a single command.
+
+---
+
+## Architecture
 
 Raw CSV Files (Messy Data)
         ↓
@@ -22,114 +31,80 @@ MySQL Database
         ↓
 Automated SQL Analytics Reports
 
+---
 
+## Tech Stack
 
-TECH STACK
+- Python
+  - Pandas
+  - SQLAlchemy
+  - PyMySQL
+- MySQL
+- SQL (Advanced Queries & Window Functions)
 
-Python
+---
 
-Pandas
+## Pipeline Workflow
 
-SQLAlchemy
+### 1. Data Ingestion
+- Dynamically reads multiple CSV files
+- Adds source tracking column
+- Combines all files into a unified dataset
 
-PyMySQL
+### 2. Data Cleaning
+- Removes duplicate records
+- Handles missing values
+- Standardizes date formats
+- Converts invalid numeric entries
+- Filters negative sales values
+- Logs cleaning activity
 
-MySQL
-
-SQL (Advanced Queries & Window Functions)
-
-
-PIPELINE WORKFLOW
-
-1️. Data Ingestion
-
-Dynamically reads multiple CSV files
-
-Adds source tracking column
-
-Combines all files into a unified dataset
-
-
-2️. Data Cleaning
-
-Removes duplicate records
-
-Handles missing values
-
-Standardizes date formats
-
-Converts invalid numeric entries
-
-Filters negative sales values
-
-Logs cleaning activity
-
-
-3️. Data Transformation
-
-Creates business-ready analytical features:
-
-Order Year
-
-Order Month
-
-Shipping Days (Delivery performance metric)
+### 3. Data Transformation
+Creates business ready analytical features:
+- Order Year
+- Order Month
+- Shipping Days (Delivery performance metric)
 
 Removes unrealistic delivery records.
 
+### 4. Database Loading
+- Connects to MySQL using SQLAlchemy
+- Loads processed dataset into relational table
+- Automatically replaces previous data
 
-4️. Database Loading
-
-Connects to MySQL using SQLAlchemy
-
-Loads processed dataset into relational table
-
-Automatically replaces previous data
-
-
-5️. Automated Reporting
-
+### 5. Automated Reporting
 Generates analytical reports including:
-
-Monthly sales trends
-
-Top customers
-
-Regional sales performance
-
-Product performance ranking
-
-Shipping delay analysis
-
-Category sales ranking (Window Functions)
+- Monthly sales trends
+- Top customers
+- Regional sales performance
+- Product performance ranking
+- Shipping delay analysis
+- Category sales ranking (Window Functions)
 
 All reports are exported automatically as CSV files.
 
+---
 
+## How to Run This Project
 
-HOW TO RUN THIS PROJECT
-
-Clone the repository
-
-Install required dependencies:
+1. Clone the repository
+2. Install required dependencies:
 
 pip install -r requirements.txt
 
+3. Update MySQL credentials inside:
+   - scripts/load.py
+   - reports/generate_report.py
 
-Update MySQL credentials inside:
-
-scripts/load.py
-
-reports/generate_report.py
-
-Run the full pipeline:
+4. Run the full pipeline:
 
 python main.py
 
 All reports will be generated inside the reports/ folder.
 
+---
 
-PROJECT STRUCTURE
+## Project Structure
 
 sales-data-etl-pipeline/
 │
@@ -145,60 +120,42 @@ sales-data-etl-pipeline/
 ├── main.py
 ├── README.md
 
+---
 
+## Example Business Insights Generated
 
+- Monthly revenue trends
+- Top spending customers
+- Regional performance comparison
+- Product level sales ranking
+- Average shipping time by region
+- Long shipping delay detection
+- Category level ranking using SQL window functions
 
-EXAMPLE BUSINESS INSIGHTS GENERATED
+---
 
-Monthly revenue trends
+## Key Highlights
 
-Top spending customers
+- Modular ETL pipeline design
+- Real world data validation handling
+- Python - SQL integration
+- Automated analytics generation
+- Window functions and advanced SQL usage
+- One command pipeline orchestration
 
-Regional performance comparison
+---
 
-Product-level sales ranking
+## Future Improvements
 
-Average shipping time by region
+- Add scheduling (Airflow / Cron)
+- Integrate interactive dashboard (Power BI / Streamlit)
+- Add performance monitoring
+- Add automated testing framework
+- Cloud deployment (AWS / GCP)
 
-Long shipping delay detection
+---
 
-Category-level ranking using SQL window functions
+## About This Project
 
-
-
-KEY HIGHLIGHTS
-
-Modular ETL pipeline design
-
-Real world data validation handling
-
-Python SQL integration
-
-Automated analytics generation
-
-Window functions and advanced SQL usage
-
-One command pipeline orchestration
-
-
-
-FUTURE IMPROVEMENTS
-
-Add scheduling (Airflow / Cron)
-
-Integrate interactive dashboard (Power BI / Streamlit)
-
-Add performance monitoring
-
-Add automated testing framework
-
-Cloud deployment (AWS / GCP)
-
-
-
-ABOUT THIS PROJECT
-
-This project was built to simulate a real world data engineering workflow.
-It demonstrates the ability to design scalable data pipelines, integrate Python with relational databases and generate automated business analytics reports.
-
-
+This project was built to simulate a real-world data engineering workflow.  
+It demonstrates the ability to design scalable data pipelines integrate Python with relational databases, and generate automated business analytics reports.
