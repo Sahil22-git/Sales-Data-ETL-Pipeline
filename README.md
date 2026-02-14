@@ -104,8 +104,10 @@ All reports will be generated inside the reports/ folder.
 
 ---
 
+
 ## Project Structure
 
+```
 sales-data-etl-pipeline/
 │
 ├── scripts/
@@ -119,6 +121,7 @@ sales-data-etl-pipeline/
 │
 ├── main.py
 ├── README.md
+```
 
 
 ---
